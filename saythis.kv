@@ -2,6 +2,7 @@
 <SayThis>:
     orientation: 'vertical'
     button_font_size: '30sp'
+    padding: root.width * 0.02, root.height * 0.02
     Label:
         text: 'Say This!'
         size_hint: 1, None
@@ -26,9 +27,9 @@
             text: 'Say it!'
             font_size: root.button_font_size
             size_hint: 1, None
-            height: self.texture_size[1]
+            height: self.texture_size[1] + (2 * root.padding[1])
         Button:
             text: 'Clear'
             font_size: root.button_font_size
             size_hint: 1, None
-            height: self.texture_size[1]
+            height: self.texture_size[1] + (2 * root.padding[1])
