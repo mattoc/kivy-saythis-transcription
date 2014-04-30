@@ -1,18 +1,26 @@
-import subprocess
-
 import kivy
 kivy.require('1.7.1')
 
 from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.popup import Popup
+
+from plyer import tts
 
 
 class SayThis(BoxLayout):
     saywhat_text = ObjectProperty(None)
 
     def say_something(self, text):
-        subprocess.call(['espeak', text])
+        try:
+            tts.speak(text)
+        except NotImplementedError:
+            popup = Popup(title='TTS Not Implemented',
+                          content=Label(text='Sorry. TTS is not available'),
+                          size_hint=(None, None),
+                          size=(300, 300))
+            popup.open()
 
     def clear(self):
         self.saywhat_text.text = ''
