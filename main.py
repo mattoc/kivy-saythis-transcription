@@ -1,3 +1,5 @@
+import subprocess
+
 import kivy
 kivy.require('1.7.1')
 
@@ -8,6 +10,9 @@ from kivy.uix.boxlayout import BoxLayout
 
 class SayThis(BoxLayout):
     saywhat_text = ObjectProperty(None)
+
+    def say_something(self, text):
+        subprocess.call(['espeak', text])
 
     def clear(self):
         self.saywhat_text.text = ''

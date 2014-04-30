@@ -35,6 +35,7 @@
             font_size: root.button_font_size
             size_hint: 1, None
             height: self.texture_size[1] + (2 * root.padding[1])
+            on_press: root.say_something(saywhat_text.text)
         Button:
             text: 'Clear'
             font_size: root.button_font_size
