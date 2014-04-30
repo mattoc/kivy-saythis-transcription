@@ -8,12 +8,14 @@
             source: 'images/background.png'
             pos: self.pos
             size: self.size
+    saywhat_text: saywhat_text
     Label:
         text: 'Say This!'
         size_hint: 1, None
         font_size: '45sp'
         height: self.texture_size[1]
     TextInput:
+        id: saywhat_text
         text: 'Hello, world'
         font_size: str(font_slider.value) + 'sp'
     Slider:
@@ -38,3 +40,4 @@
             font_size: root.button_font_size
             size_hint: 1, None
             height: self.texture_size[1] + (2 * root.padding[1])
+            on_press: root.clear()
